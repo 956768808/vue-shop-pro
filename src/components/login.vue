@@ -63,7 +63,7 @@ export default {
           }
           // 通过sessionStorage 记录 token
           // window.sessionStorage(名称，值)
-          window.sessionStorage.setItem('token', res.data.oken)
+          window.sessionStorage.setItem('token', res.data.token)
           this.$router.push('/home')
         }
       })
