@@ -22,6 +22,7 @@
           :unique-opened="true"
           :collapse="menushow"
           :collapse-transition="false"
+          :router="true"
         >
           <el-submenu :index="item.id+''" v-for="(item,k) in menuList" :key="item.id">
             <template slot="title">
@@ -29,7 +30,7 @@
               <span>{{item.authName}}</span>
             </template>
             <el-menu-item
-              :index="item.id +'-'+ item2.id"
+              :index="item2.path"
               v-for="item2 in item.children"
               :key="item2.id"
             >
@@ -64,6 +65,7 @@ export default {
     //获得左侧功能按钮数据
     async getMenuList() {
       const { data: res } = await this.$http.get('menus')
+      console.log(res)
       //获取数据失败
       if (res.meta.status != 200) {
         return this.$message.error(res.meta.msg)

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/login'
 import Home from '@/components/Home'
 import Welcome from '@/components/Welcome'
+import Users from '@/components/Users'
 
 Vue.use(Router)
 
@@ -10,7 +11,8 @@ var router = new Router({
   routes: [
     { path: '/login',component: Login },
     { path: '/home', component: Home },
-    { path: '/welcome', component: Welcome }
+    { path: '/welcome', component: Welcome },
+    { path: '/users', component: Users }
   ]
 })
 //路由导航守卫，检测token如果不存在，就跳转到login登录组件去
