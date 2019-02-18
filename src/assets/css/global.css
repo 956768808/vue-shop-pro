@@ -12,3 +12,19 @@ body,
 i.iconfont{
   margin-right:10px;
 }
+
+/* 内容区卡片区域样式 */
+.box-card{
+  margin-top:15px;
+}
+
+/* 表格样式 */
+.el-table {
+  margin-top:15px;
+  font-size:12px; 
+}
+
+/* 分页条 */
+.el-pagination{
+  margin-top:15px;
+}

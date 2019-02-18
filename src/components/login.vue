@@ -50,7 +50,7 @@ export default {
     }
   },
   methods: {
-    //用户登录系统
+    // 用户登录系统
     login() {
       // 进行路由t跳转(重定向)，具体跳转啊到(/home)
       // 对form表单进行校验

@@ -18,22 +18,22 @@
           background-color="#333744"
           text-color="#fff"
           active-text-color="#409eff"
-          :style="menushow?'width:65px;':'width:200px;'"
           :unique-opened="true"
           :collapse="menushow"
           :collapse-transition="false"
           :router="true"
         >
-          <el-submenu :index="item.id+''" v-for="(item,k) in menuList" :key="item.id">
+          <el-submenu
+            :index="item.id+''"
+            v-for="(item,k) in menuList"
+            :key="item.id"
+            :style="menushow?'width:65px;':'width:200px;'"
+          >
             <template slot="title">
               <i :class="'iconfont icon-' + menuicon[k]"></i>
               <span>{{item.authName}}</span>
             </template>
-            <el-menu-item
-              :index="item2.path"
-              v-for="item2 in item.children"
-              :key="item2.id"
-            >
+            <el-menu-item :index="item2.path" v-for="item2 in item.children" :key="item2.id">
               <i class="el-icon-menu"></i>
               <span>{{item2.authName}}</span>
             </el-menu-item>
@@ -41,36 +41,36 @@
         </el-menu>
       </el-aside>
       <el-main>
-        <router-view />
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>
 </template>
 <script>
 export default {
-  //生命周期函数
+  // 生命周期函数
   created() {
-    //获得左侧按钮列表数据
+    // 获得左侧按钮列表数据
     this.getMenuList()
   },
   data() {
     return {
-      //设定左侧菜单收起展开
+      // 设定左侧菜单收起展开
       menushow: false,
-      menuList:[],  //接受左侧功能按钮数据
-      menuicon:['users','tijikongjian','shangpin','danju','baobiao']
+      menuList: [], // 接受左侧功能按钮数据
+      menuicon: ['users', 'tijikongjian', 'shangpin', 'danju', 'baobiao']
     }
   },
   methods: {
-    //获得左侧功能按钮数据
+    // 获得左侧功能按钮数据
     async getMenuList() {
       const { data: res } = await this.$http.get('menus')
       console.log(res)
-      //获取数据失败
-      if (res.meta.status != 200) {
+      // 获取数据失败
+      if (res.meta.status !== 200) {
         return this.$message.error(res.meta.msg)
       }
-      //把获取好的数据赋值给menuList
+      // 把获取好的数据赋值给menuList
       this.menuList = res.data
     },
     layout() {
@@ -116,7 +116,7 @@ export default {
     }
   }
   .el-aside {
-    background-color: #333744;  
+    background-color: #333744;
   }
   .el-main {
     background-color: #e9eef3;
